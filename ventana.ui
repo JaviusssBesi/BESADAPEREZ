@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>1039</height>
+    <width>1150</width>
+    <height>1009</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -482,7 +482,7 @@
              <number>10</number>
             </property>
             <item row="0" column="0">
-             <widget class="QPushButton" name="btnAceptar">
+             <widget class="QPushButton" name="btnAltaCli">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -490,7 +490,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>Aceptar</string>
+               <string>Grabar</string>
               </property>
              </widget>
             </item>
@@ -771,7 +771,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
+     <width>1150</width>
      <height>21</height>
     </rect>
    </property>
@@ -798,11 +798,11 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="grpbtnSex"/>
   <buttongroup name="grpbtnPay">
    <property name="exclusive">
     <bool>false</bool>
    </property>
   </buttongroup>
+  <buttongroup name="grpbtnSex"/>
  </buttongroups>
 </ui>
