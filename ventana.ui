@@ -943,6 +943,19 @@ text-align:center;</string>
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionToolBarSalir"/>
+   <addaction name="actionBackup"/>
+  </widget>
   <action name="actionSalir">
    <property name="text">
     <string>Salir</string>
@@ -951,17 +964,51 @@ text-align:center;</string>
     <string>Alt+S</string>
    </property>
   </action>
+  <action name="actionBackup">
+   <property name="icon">
+    <iconset>
+     <activeon>:/backup/backup.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Backup</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/backup/backup.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+B</string>
+   </property>
+  </action>
+  <action name="actionToolBarSalir">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <activeon>:/salir/iconsalir.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>ToolBarSalir</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/salir/iconsalir.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="img/logo.qrc"/>
+  <include location="img/toolbarsalir.qrc"/>
+  <include location="img/toolbarbackup.qrc"/>
  </resources>
  <connections/>
  <buttongroups>
+  <buttongroup name="grpbtnSex"/>
   <buttongroup name="grpbtnPay">
    <property name="exclusive">
     <bool>false</bool>
    </property>
   </buttongroup>
-  <buttongroup name="grpbtnSex"/>
  </buttongroups>
 </ui>

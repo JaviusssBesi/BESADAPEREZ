@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="salir">
+    <file>iconsalir.png</file>
+  </qresource>
+</RCC>
