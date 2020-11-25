@@ -69,6 +69,7 @@ class Main(QtWidgets.QMainWindow):
         events.Eventos.cargarProv()
         var.ui.statusbar.addPermanentWidget(var.ui.lblstatus, 1)
         var.ui.lblstatus.setText('Bienvenido a 2º DAM')
+        var.ui.toolbarsalir.clicked.connect(events.Eventos.Salir)
 
         '''
         módulos conexion base datos
