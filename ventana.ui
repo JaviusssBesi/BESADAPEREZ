@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1119</width>
-    <height>851</height>
+    <width>1133</width>
+    <height>874</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,43 +27,9 @@
     <bool>false</bool>
    </property>
    <layout class="QGridLayout" name="gridLayout_7">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
-    </property>
-    <item row="0" column="0">
+    <item row="1" column="1" rowspan="2">
      <layout class="QGridLayout" name="gridLayout_6">
-      <item row="2" column="1">
-       <widget class="QLabel" name="lblstatus">
-        <property name="minimumSize">
-         <size>
-          <width>1040</width>
-          <height>13</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>1041</width>
-          <height>14</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
+      <item row="0" column="0">
        <widget class="QTabWidget" name="tabWidget">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -101,7 +67,7 @@
            <rect>
             <x>30</x>
             <y>30</y>
-            <width>971</width>
+            <width>995</width>
             <height>601</height>
            </rect>
           </property>
@@ -137,7 +103,7 @@ color: rgb(255, 255, 255);</string>
            <item row="2" column="0">
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="0" column="4">
-              <widget class="QPushButton" name="btnReloadCli">
+              <widget class="QPushButton" name="btnBuscarCli">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -149,7 +115,7 @@ color: rgb(255, 255, 255);</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>img/reload.png</normaloff>img/reload.png</iconset>
+                 <normaloff>img/lupa.png</normaloff>img/lupa.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -159,97 +125,20 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="editDni">
-               <property name="styleSheet">
-                <string notr="true">background-color: rgba(255, 0, 0, 50);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="7">
-              <widget class="QLineEdit" name="editClialta">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblDni">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>16777215</width>
+                 <width>30</width>
                  <height>16777215</height>
                 </size>
                </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgba(255, 0, 0, 50);</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="lblValidar">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Comic Sans MS</family>
-                 <pointsize>14</pointsize>
-                 <weight>75</weight>
-                 <italic>true</italic>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="5">
-              <spacer name="horizontalSpacer_3">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="0" column="6">
-              <widget class="QLabel" name="lblClialta">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Fecha de Alta:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="lblDni">
                <property name="font">
                 <font>
                  <weight>75</weight>
@@ -261,7 +150,7 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="8">
+             <item row="0" column="9">
               <widget class="QPushButton" name="btnCalendar">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -290,8 +179,8 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="3">
-              <widget class="QPushButton" name="btnBuscarCli">
+             <item row="0" column="5">
+              <widget class="QPushButton" name="btnReloadCli">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -303,7 +192,7 @@ color: rgb(255, 255, 255);</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>img/lupa.png</normaloff>img/lupa.png</iconset>
+                 <normaloff>img/reload.png</normaloff>img/reload.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -312,6 +201,132 @@ color: rgb(255, 255, 255);</string>
                 </size>
                </property>
               </widget>
+             </item>
+             <item row="0" column="7">
+              <widget class="QLabel" name="lblClialta">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Fecha de Alta:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="8">
+              <widget class="QLineEdit" name="editClialta">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgba(255, 0, 0, 50);</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="editDni">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>170</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>170</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgba(255, 0, 0, 50);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="lblValidar">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Comic Sans MS</family>
+                 <pointsize>14</pointsize>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="6">
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>270</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="3">
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>75</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </item>
@@ -699,34 +714,81 @@ color: rgb(255, 255, 255);</string>
        </widget>
       </item>
       <item row="1" column="0">
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+       <widget class="QLabel" name="lblstatusdate">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
-       </spacer>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
       </item>
-      <item row="0" column="1">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblstatus">
+        <property name="minimumSize">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>1040</width>
+          <height>13</height>
          </size>
         </property>
-       </spacer>
+        <property name="maximumSize">
+         <size>
+          <width>1041</width>
+          <height>14</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
+    <item row="1" column="0">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item row="0" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="2">
      <spacer name="horizontalSpacer_6">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -739,7 +801,7 @@ color: rgb(255, 255, 255);</string>
       </property>
      </spacer>
     </item>
-    <item row="1" column="0">
+    <item row="3" column="1">
      <spacer name="verticalSpacer_2">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -759,15 +821,15 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1119</width>
-     <height>21</height>
+     <width>1133</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
     <property name="title">
      <string>Archivo</string>
     </property>
-    <addaction name="actionSalir"/>
+    <addaction name="menubarSalir"/>
    </widget>
    <addaction name="menuArchivo"/>
   </widget>
@@ -782,66 +844,66 @@ color: rgb(255, 255, 255);</string>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionToolBarImpresora"/>
-   <addaction name="actionToolBarCarpeta"/>
-   <addaction name="actionToolBarBackup"/>
-   <addaction name="actionToolBarSalir"/>
+   <addaction name="toolbarImpresora"/>
+   <addaction name="toolbarAbrirDir"/>
+   <addaction name="toolbarBackup"/>
+   <addaction name="toolbarSalir"/>
   </widget>
-  <action name="actionToolBarSalir">
+  <action name="toolbarSalir">
    <property name="icon">
     <iconset>
      <activeon>:/salir/iconsalir.png</activeon>
     </iconset>
    </property>
    <property name="text">
-    <string>ToolBarSalir</string>
+    <string>toolbarSalir</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/salir/iconsalir.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
-  <action name="actionToolBarBackup">
+  <action name="toolbarBackup">
    <property name="icon">
     <iconset>
      <activeon>:/backup/backup32.png</activeon>
     </iconset>
    </property>
    <property name="text">
-    <string>ToolBarBackup</string>
+    <string>toolbarBackup</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/backup/backup32.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
-  <action name="actionToolBarCarpeta">
+  <action name="toolbarAbrirDir">
    <property name="icon">
     <iconset>
      <activeon>:/carpeta/abrircarpeta.png</activeon>
     </iconset>
    </property>
    <property name="text">
-    <string>ToolBarCarpeta</string>
+    <string>toolbarAbrirDir</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/carpeta/abrircarpeta.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
-  <action name="actionToolBarImpresora">
+  <action name="toolbarImpresora">
    <property name="icon">
     <iconset>
      <activeon>:/impresora/impresora.png</activeon>
     </iconset>
    </property>
    <property name="text">
-    <string>ToolBarImpresora</string>
+    <string>toolbarImpresora</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/impresora/impresora.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
-  <action name="actionSalir">
+  <action name="menubarSalir">
    <property name="text">
-    <string>Salir</string>
+    <string>menubarSalir</string>
    </property>
    <property name="shortcut">
     <string>Alt+S</string>
@@ -852,7 +914,6 @@ color: rgb(255, 255, 255);</string>
   <include location="img/toolbarsalir.qrc"/>
   <include location="img/abrirdirectorio.qrc"/>
   <include location="img/toolbarimpresora.qrc"/>
-  <include location="img/toolbarcarpeta.qrc"/>
   <include location="img/toolbarbackup.qrc"/>
  </resources>
  <connections/>

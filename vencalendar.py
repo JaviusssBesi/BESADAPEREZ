@@ -14,10 +14,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_dlgCalendar(object):
     def setupUi(self, dlgCalendar):
         dlgCalendar.setObjectName("dlgCalendar")
-        dlgCalendar.resize(327, 195)
+        dlgCalendar.resize(409, 220)
         dlgCalendar.setModal(True)
         self.Calendar = QtWidgets.QCalendarWidget(dlgCalendar)
-        self.Calendar.setGeometry(QtCore.QRect(1, 2, 321, 191))
+        self.Calendar.setGeometry(QtCore.QRect(1, 2, 401, 211))
         self.Calendar.setObjectName("Calendar")
 
         self.retranslateUi(dlgCalendar)
