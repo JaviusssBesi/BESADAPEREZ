@@ -763,6 +763,13 @@ color: rgb(255, 255, 255);</string>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuArchivo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -780,14 +787,6 @@ color: rgb(255, 255, 255);</string>
    <addaction name="actionToolBarBackup"/>
    <addaction name="actionToolBarSalir"/>
   </widget>
-  <action name="actionSalir">
-   <property name="text">
-    <string>Salir</string>
-   </property>
-   <property name="shortcut">
-    <string>Alt+S</string>
-   </property>
-  </action>
   <action name="actionToolBarSalir">
    <property name="icon">
     <iconset>
@@ -838,6 +837,14 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/impresora/impresora.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
    </property>
   </action>
  </widget>

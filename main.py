@@ -60,10 +60,10 @@ class Main(QtWidgets.QMainWindow):
         botones formulario cliente
         '''
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
-        var.ui.menubarSalir.triggered.connect(events.Eventos.Salir)
-        var.ui.toolbarSalir.triggered.connect(events.Eventos.Salir)
-        var.ui.toolbarBackup.triggered.connect(events.Eventos.Backup)
-        var.ui.toolbarAbrirDir.triggered.connect(events.Eventos.AbrirDir)
+        #var.ui.menubarSalir.triggered.connect(events.Eventos.Salir)
+        #var.ui.toolbarSalir.triggered.connect(events.Eventos.Salir)
+        #var.ui.toolbarBackup.triggered.connect(events.Eventos.Backup)
+        #var.ui.toolbarAbrirDir.triggered.connect(events.Eventos.AbrirDir)
         var.ui.editDni.editingFinished.connect(clients.Clientes.validoDni)
         #var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni)
         var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)

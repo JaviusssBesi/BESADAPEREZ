@@ -382,6 +382,8 @@ class Ui_venPrincipal(object):
         self.menubar = QtWidgets.QMenuBar(venPrincipal)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1119, 21))
         self.menubar.setObjectName("menubar")
+        self.menuArchivo = QtWidgets.QMenu(self.menubar)
+        self.menuArchivo.setObjectName("menuArchivo")
         venPrincipal.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(venPrincipal)
         self.statusbar.setObjectName("statusbar")
@@ -389,8 +391,6 @@ class Ui_venPrincipal(object):
         self.toolBar = QtWidgets.QToolBar(venPrincipal)
         self.toolBar.setObjectName("toolBar")
         venPrincipal.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
-        self.actionSalir = QtWidgets.QAction(venPrincipal)
-        self.actionSalir.setObjectName("actionSalir")
         self.actionToolBarSalir = QtWidgets.QAction(venPrincipal)
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/salir/iconsalir.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
@@ -411,6 +411,10 @@ class Ui_venPrincipal(object):
         icon6.addPixmap(QtGui.QPixmap(":/impresora/impresora.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.actionToolBarImpresora.setIcon(icon6)
         self.actionToolBarImpresora.setObjectName("actionToolBarImpresora")
+        self.actionSalir = QtWidgets.QAction(venPrincipal)
+        self.actionSalir.setObjectName("actionSalir")
+        self.menuArchivo.addAction(self.actionSalir)
+        self.menubar.addAction(self.menuArchivo.menuAction())
         self.toolBar.addAction(self.actionToolBarImpresora)
         self.toolBar.addAction(self.actionToolBarCarpeta)
         self.toolBar.addAction(self.actionToolBarBackup)
@@ -453,9 +457,8 @@ class Ui_venPrincipal(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.panelCli), _translate("venPrincipal", "Clientes"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.panelFac), _translate("venPrincipal", "Facturación"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.panelPro), _translate("venPrincipal", "Productos"))
+        self.menuArchivo.setTitle(_translate("venPrincipal", "Archivo"))
         self.toolBar.setWindowTitle(_translate("venPrincipal", "toolBar"))
-        self.actionSalir.setText(_translate("venPrincipal", "Salir"))
-        self.actionSalir.setShortcut(_translate("venPrincipal", "Alt+S"))
         self.actionToolBarSalir.setText(_translate("venPrincipal", "ToolBarSalir"))
         self.actionToolBarSalir.setToolTip(_translate("venPrincipal", "<html><head/><body><p><img src=\":/salir/iconsalir.png\"/></p></body></html>"))
         self.actionToolBarBackup.setText(_translate("venPrincipal", "ToolBarBackup"))
@@ -464,8 +467,9 @@ class Ui_venPrincipal(object):
         self.actionToolBarCarpeta.setToolTip(_translate("venPrincipal", "<html><head/><body><p><img src=\":/carpeta/abrircarpeta.png\"/></p></body></html>"))
         self.actionToolBarImpresora.setText(_translate("venPrincipal", "ToolBarImpresora"))
         self.actionToolBarImpresora.setToolTip(_translate("venPrincipal", "<html><head/><body><p><img src=\":/impresora/impresora.png\"/></p></body></html>"))
+        self.actionSalir.setText(_translate("venPrincipal", "Salir"))
+        self.actionSalir.setShortcut(_translate("venPrincipal", "Alt+S"))
 import abrirdirectorio_rc
 import toolbarbackup_rc
-import toolbarcarpeta_rc
 import toolbarimpresora_rc
 import toolbarsalir_rc
