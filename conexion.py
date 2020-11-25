@@ -16,8 +16,8 @@ class Conexion():
 
     def altaCli(cliente):
         query = QtSql.QSqlQuery()
-        query.prepare('insert into clientes (dni, apellidos, nombre, fechalta, direccion, provincia, sexo, formaspago)'
-                    'VALUES (:dni, :apellidos, :nombre, :fechalta, :direccion, :provincia, :sexo, :formaspago)')
+        query.prepare('insert into clientes (dni, apellidos, nombre, fechalta, direccion, provincia, sexo, formaspago, edad)'
+                    'VALUES (:dni, :apellidos, :nombre, :fechalta, :direccion, :provincia, :sexo, :formaspago, :edad)')
         query.bindValue(':dni', str(cliente[0]))
         query.bindValue(':apellidos', str(cliente[1]))
         query.bindValue(':nombre', str(cliente[2]))
@@ -27,6 +27,7 @@ class Conexion():
         query.bindValue(':sexo', str(cliente[6]))
         # pagos = ' '.join(cliente[7]) si quiesesemos un texto, pero nos viene mejor meterlo como una lista
         query.bindValue(':formaspago', str(cliente[7]))
+        query.bindValue(':edad',int(cliente[8]))
         if query.exec_():
             print("Inserción Correcta")
             var.ui.lblstatus.setText('Alta Cliente con dni ' + str(cliente[0]))
@@ -63,6 +64,7 @@ class Conexion():
                     var.chkpago[1].setChecked(True)
                 if 'Transferencia' in query.value(8):
                     var.chkpago[2].setChecked(True)
+                var.ui.spinEdad.setValue(int(query.value(9)))
 
     def mostrarClientes(self):
         '''
@@ -112,7 +114,7 @@ class Conexion():
            query = QtSql.QSqlQuery()
            codigo = int(codigo)
            query.prepare('update clientes set dni=:dni, apellidos=:apellidos, nombre=:nombre, fechalta=:fechalta, '
-                         'direccion=:direccion, provincia=:provincia, sexo=:sexo, formaspago=:formaspago where codigo=:codigo')
+                         'direccion=:direccion, provincia=:provincia, sexo=:sexo, formaspago=:formaspago, edad=:edad where codigo=:codigo')
            query.bindValue(':codigo', int(codigo))
            query.bindValue(':dni', str(newdata[0]))
            query.bindValue(':apellidos', str(newdata[1]))
@@ -122,6 +124,7 @@ class Conexion():
            query.bindValue(':provincia', str(newdata[5]))
            query.bindValue(':sexo', str(newdata[6]))
            query.bindValue(':formaspago', str(newdata[7]))
+           query.bindValue(':edad', int(newdata[8]))
 
            if query.exec_():
                print('Cliente modificado')
@@ -160,6 +163,7 @@ class Conexion():
                     var.chkpago[1].setChecked(True)
                 if 'Transferencia' in query.value(8):
                     var.chkpago[2].setChecked(True)
+                var.ui.spinEdad.setValue(query.value(9))
 
                 var.ui.tableCli.setRowCount(index + 1)
                     # voy metiendo los datos en cada celda de la fila

@@ -777,7 +777,7 @@ color: rgb(255, 255, 255);</string>
    </attribute>
    <addaction name="actionToolBarImpresora"/>
    <addaction name="actionToolBarCarpeta"/>
-   <addaction name="actionBackup"/>
+   <addaction name="actionToolBarBackup"/>
    <addaction name="actionToolBarSalir"/>
   </widget>
   <action name="actionSalir">
@@ -801,30 +801,30 @@ color: rgb(255, 255, 255);</string>
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/salir/iconsalir.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
-  <action name="actionBackup">
+  <action name="actionToolBarBackup">
    <property name="icon">
     <iconset>
-     <activeon>:/backup/backup.png</activeon>
+     <activeon>:/backup/backup32.png</activeon>
     </iconset>
    </property>
    <property name="text">
-    <string>Backup</string>
+    <string>ToolBarBackup</string>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/backup/backup.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/backup/backup32.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
   <action name="actionToolBarCarpeta">
    <property name="icon">
     <iconset>
-     <activeon>:/toolbarcarpeta/carpeta.png</activeon>
+     <activeon>:/carpeta/abrircarpeta.png</activeon>
     </iconset>
    </property>
    <property name="text">
     <string>ToolBarCarpeta</string>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolbarcarpeta/carpeta.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/carpeta/abrircarpeta.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
   <action name="actionToolBarImpresora">
@@ -843,6 +843,7 @@ color: rgb(255, 255, 255);</string>
  </widget>
  <resources>
   <include location="img/toolbarsalir.qrc"/>
+  <include location="img/abrirdirectorio.qrc"/>
   <include location="img/toolbarimpresora.qrc"/>
   <include location="img/toolbarcarpeta.qrc"/>
   <include location="img/toolbarbackup.qrc"/>

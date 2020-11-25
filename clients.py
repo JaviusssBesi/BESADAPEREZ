@@ -34,6 +34,7 @@ class Clientes():
         """
         try:
             dni = var.ui.editDni.text()
+            print(dni)
             if Clientes.validarDni(dni):
                 var.ui.lblValidar.setStyleSheet('QLabel {color: green;}')
                 var.ui.lblValidar.setText('V')
@@ -124,6 +125,8 @@ class Clientes():
             newcli.append(var.sex)
             var.pay2 = Clientes.selPago()
             newcli.append(var.pay2)
+            edad = var.ui.spinEdad.value()
+            newcli.append(edad)
             if client:
             #comprobarmos que no esté vacío lo principal
             #aquí empieza como trabajar con la TableWidget
@@ -207,6 +210,8 @@ class Clientes():
             newdata.append(var.sex)
             var.pay = Clientes.selPago()
             newdata.append(var.pay)
+            edad = var.ui.spinEdad.value()
+            newdata.append(edad)
             cod = var.ui.lblCodcli.text()
             conexion.Conexion.modifCli(cod, newdata)
             conexion.Conexion.mostrarClientes(self)
@@ -236,9 +241,7 @@ class Clientes():
             dni = var.ui.editDni.text()
             conexion.Conexion.buscaCli(dni)
         except Exception as error:
-            print('Error recargar clientes: %s ' % str(error))
-
-
+            print('Error buscar clientes: %s ' % str(error))
 
     def valoresSpin():
         try:

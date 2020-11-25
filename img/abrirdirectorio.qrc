@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="carpeta">
+    <file>abrircarpeta.png</file>
+  </qresource>
+</RCC>

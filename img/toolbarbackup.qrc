@@ -1,5 +1,5 @@
 <RCC>
   <qresource prefix="backup">
-    <file>backup.png</file>
+    <file>backup32.png</file>
   </qresource>
 </RCC>

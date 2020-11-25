@@ -1,8 +1,12 @@
 from ventana import *
 from vensalir import *
+from PyQt5.QtPrintSupport import QPrintDialog, QPrinter
 from vencalendar import *
-from datetime import datetime
+from datetime import datetime, date
 import sys, var, events, clients, conexion
+import locale
+# Idioma "es-ES" (código para el español de España)
+locale.setlocale(locale.LC_ALL, 'es-ES')
 
 
 class DialogSalir(QtWidgets.QDialog):
@@ -26,7 +30,14 @@ class DialogCalendar(QtWidgets.QDialog):
         var.dlgcalendar.Calendar.setSelectedDate((QtCore.QDate(anoactual, mesactual, diaactual)))
         var.dlgcalendar.Calendar.clicked.connect(clients.Clientes.cargarFecha)
 
+class FileDialogAbrir(QtWidgets.QFileDialog):
+    def __init__(self):
+        super(FileDialogAbrir, self).__init__()
 
+
+class PrintDialogAbrir(QPrintDialog):
+    def __init__(self):
+        super(PrintDialogAbrir, self).__init__()
 
 class Main(QtWidgets.QMainWindow):
     def __init__(self):
@@ -35,6 +46,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui.setupUi(self)
         var.dlgsalir = DialogSalir()
         var.dlgcalendar = DialogCalendar()
+        var.filedlgabrir = FileDialogAbrir()
+        var.dlgImprimir = PrintDialogAbrir()
 
         '''
         colección de datos
@@ -47,8 +60,12 @@ class Main(QtWidgets.QMainWindow):
         botones formulario cliente
         '''
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
-        var.ui.actionSalir.triggered.connect(events.Eventos.Salir)
-        var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni())
+        var.ui.menubarSalir.triggered.connect(events.Eventos.Salir)
+        var.ui.toolbarSalir.triggered.connect(events.Eventos.Salir)
+        var.ui.toolbarBackup.triggered.connect(events.Eventos.Backup)
+        var.ui.toolbarAbrirDir.triggered.connect(events.Eventos.AbrirDir)
+        var.ui.editDni.editingFinished.connect(clients.Clientes.validoDni)
+        #var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni)
         var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)
         var.ui.btnAltaCli.clicked.connect(clients.Clientes.altaCliente)
         var.ui.btnLimpiarCli.clicked.connect(clients.Clientes.limpiarCli)
@@ -66,10 +83,14 @@ class Main(QtWidgets.QMainWindow):
         var.ui.cmbProv.activated[str].connect(clients.Clientes.selProv)
         var.ui.tableCli.clicked.connect(clients.Clientes.cargarCli)
         var.ui.tableCli.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows)
-        events.Eventos.cargarProv()
+        events.Eventos.cargarProv(self)
         var.ui.statusbar.addPermanentWidget(var.ui.lblstatus, 1)
+        var.ui.statusbar.addPermanentWidget(var.ui.lblstatusdate, 2)
+        var.ui.lblstatus.setStyleSheet('QLabel {color: red; font: bold;}')
         var.ui.lblstatus.setText('Bienvenido a 2º DAM')
-        var.ui.toolbarsalir.clicked.connect(events.Eventos.Salir)
+        fecha = date.today()
+        var.ui.lblstatusdate.setStyleSheet('QLabel {color: black; font: bold;}')
+        var.ui.lblstatusdate.setText(fecha.strftime('%A %d de %B del %Y'))
 
         '''
         módulos conexion base datos
