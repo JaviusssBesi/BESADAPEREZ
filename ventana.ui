@@ -875,7 +875,7 @@ color: rgb(255, 255, 255);</string>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="toolbarprinter"/>
+   <addaction name="toolbarPrinter"/>
    <addaction name="toolbarAbrirDir"/>
    <addaction name="toolbarBackup"/>
    <addaction name="toolbarSalir"/>
@@ -919,14 +919,14 @@ color: rgb(255, 255, 255);</string>
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/carpeta/abrircarpeta.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
-  <action name="toolbarprinter">
+  <action name="toolbarPrinter">
    <property name="icon">
     <iconset>
      <activeon>:/printer/printer.png</activeon>
     </iconset>
    </property>
    <property name="text">
-    <string>toolbarprinter</string>
+    <string>toolbarPrinter</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/printer/printer.png&quot;/&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
