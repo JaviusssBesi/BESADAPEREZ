@@ -103,6 +103,22 @@ color: rgb(255, 255, 255);</string>
            <item row="2" column="0">
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="0" column="4">
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>75</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="5">
               <widget class="QPushButton" name="btnBuscarCli">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -125,19 +141,36 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="lblDni">
+             <item row="0" column="6">
+              <widget class="QPushButton" name="btnReloadCli">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
-               <property name="maximumSize">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>img/reload.png</normaloff>img/reload.png</iconset>
+               </property>
+               <property name="iconSize">
                 <size>
-                 <width>30</width>
-                 <height>16777215</height>
+                 <width>24</width>
+                 <height>24</height>
                 </size>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="8">
+              <widget class="QLabel" name="lblClialta">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
                <property name="font">
                 <font>
@@ -146,11 +179,11 @@ color: rgb(255, 255, 255);</string>
                 </font>
                </property>
                <property name="text">
-                <string>DNI:</string>
+                <string>Fecha de Alta:</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="9">
+             <item row="0" column="10">
               <widget class="QPushButton" name="btnCalendar">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -179,36 +212,19 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="5">
-              <widget class="QPushButton" name="btnReloadCli">
+             <item row="0" column="1">
+              <widget class="QLabel" name="lblDni">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>img/reload.png</normaloff>img/reload.png</iconset>
-               </property>
-               <property name="iconSize">
+               <property name="maximumSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>30</width>
+                 <height>16777215</height>
                 </size>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="7">
-              <widget class="QLabel" name="lblClialta">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
                </property>
                <property name="font">
                 <font>
@@ -217,11 +233,11 @@ color: rgb(255, 255, 255);</string>
                 </font>
                </property>
                <property name="text">
-                <string>Fecha de Alta:</string>
+                <string>DNI:</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="8">
+             <item row="0" column="9">
               <widget class="QLineEdit" name="editClialta">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
@@ -249,32 +265,7 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="editDni">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>170</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>170</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgba(255, 0, 0, 50);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
+             <item row="0" column="3">
               <widget class="QLabel" name="lblValidar">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -296,7 +287,32 @@ color: rgb(255, 255, 255);</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="6">
+             <item row="0" column="2">
+              <widget class="QLineEdit" name="editDni">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgba(255, 0, 0, 50);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="7">
               <spacer name="horizontalSpacer_3">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -312,21 +328,36 @@ color: rgb(255, 255, 255);</string>
                </property>
               </spacer>
              </item>
-             <item row="0" column="3">
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblCodcli">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
+               <property name="maximumSize">
                 <size>
                  <width>75</width>
-                 <height>10</height>
+                 <height>16777215</height>
                 </size>
                </property>
-              </spacer>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(225, 255, 253);</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -844,7 +875,7 @@ color: rgb(255, 255, 255);</string>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="toolbarImpresora"/>
+   <addaction name="toolbarprinter"/>
    <addaction name="toolbarAbrirDir"/>
    <addaction name="toolbarBackup"/>
    <addaction name="toolbarSalir"/>
@@ -888,17 +919,17 @@ color: rgb(255, 255, 255);</string>
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/carpeta/abrircarpeta.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
-  <action name="toolbarImpresora">
+  <action name="toolbarprinter">
    <property name="icon">
     <iconset>
-     <activeon>:/impresora/impresora.png</activeon>
+     <activeon>:/printer/printer.png</activeon>
     </iconset>
    </property>
    <property name="text">
-    <string>toolbarImpresora</string>
+    <string>toolbarprinter</string>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/impresora/impresora.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/printer/printer.png&quot;/&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
   <action name="menubarSalir">
@@ -912,8 +943,8 @@ color: rgb(255, 255, 255);</string>
  </widget>
  <resources>
   <include location="img/toolbarsalir.qrc"/>
+  <include location="img/toolbarprinter.qrc"/>
   <include location="img/abrirdirectorio.qrc"/>
-  <include location="img/toolbarimpresora.qrc"/>
   <include location="img/toolbarbackup.qrc"/>
  </resources>
  <connections/>

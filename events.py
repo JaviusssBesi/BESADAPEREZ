@@ -1,5 +1,5 @@
 import sys, var
-
+from vensalir import *
 class Eventos():
 
     def Salir(event):
@@ -8,8 +8,9 @@ class Eventos():
         :return:
         '''
         try:
+            var.lblMensalir.setText('Desea Salir de Xestión')
             var.dlgsalir.show()
-            if var.dlgsalir.exec_():
+            if var.dlgsalir.exec_() and var.salir:
                 #print(event)
                 sys.exit()
             else:
@@ -22,7 +23,6 @@ class Eventos():
     def closeSalir(event):
         try:
             if var.dlgsalir.exec_():
-                print(event)
                 var.dlgsalir.hide()
                #necesario para que ignore X de la ventana
         except Exception as error:
@@ -49,8 +49,28 @@ class Eventos():
 
     def AbrirDir(self):
         try:
-            var.filedlgabrir.setWindowTitle('Abrir Archivo')
-            var.filedlgabrir.setModal(True)
             var.filedlgabrir.show()
         except Exception as error:
             print('Error abrir explorador: %s ' % str(error))
+
+    def AbrirPrinter(self):
+        try:
+            var.dlgImprimir.setWindowTitle('Imprimir')
+            var.dlgImprimir.setModal(True)
+            var.dlgImprimir.show()
+        except Exception as error:
+            print('Error abrir imprimr: %s ' % str(error))
+
+    def AbrirAviso(men):
+        try:
+            if var.dlgsalir.exec_() and var.salir:
+                pass
+            else:
+                var.lblMensalir.setText(men)
+                var.dlgsalir.show()
+
+        except Exception as error:
+            print('Error abrir ventana aviso: %s ' % str(error))
+
+    # def aceptar():
+    #     print('aceptar')

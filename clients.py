@@ -1,5 +1,6 @@
-import var, conexion
+import var, conexion, events, clients
 from ventana import *
+import vensalir
 
 class Clientes():
     """
@@ -34,7 +35,6 @@ class Clientes():
         """
         try:
             dni = var.ui.editDni.text()
-            print(dni)
             if Clientes.validarDni(dni):
                 var.ui.lblValidar.setStyleSheet('QLabel {color: green;}')
                 var.ui.lblValidar.setText('V')
@@ -43,8 +43,11 @@ class Clientes():
                 var.ui.lblValidar.setStyleSheet('QLabel {color: red;}')
                 var.ui.lblValidar.setText('X')
                 var.ui.editDni.setText(dni.upper())
-
-        except:
+                message = 'DNI INCORRECTO   '
+                events.Eventos.AbrirAviso(message)
+                clients.Clientes.limpiarCli()
+        except Exception as error:
+            print('Error: %s' % str(error))
             print('Error módulo escribir valido DNI')
             return None
 

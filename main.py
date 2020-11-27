@@ -1,6 +1,6 @@
 from ventana import *
 from vensalir import *
-from PyQt5.QtPrintSupport import QPrintDialog, QPrinter
+from PyQt5 import QtWidgets, QtGui, QtCore, QtPrintSupport
 from vencalendar import *
 from datetime import datetime, date
 import sys, var, events, clients, conexion
@@ -14,10 +14,9 @@ class DialogSalir(QtWidgets.QDialog):
         super(DialogSalir, self).__init__()
         var.dlgsalir = Ui_dlgSalir()
         var.dlgsalir.setupUi(self)
-        var.dlgsalir.btnBoxSalir.button(QtWidgets.QDialogButtonBox.Yes).clicked.connect(events.Eventos.Salir)
-        # var.dlgsalir.btnBoxSalir.button(QtWidgets.QDialogButtonBox.No).clicked.connect(events.Eventos.closeSalir)
-        # no es neceasario no quiero que haga nada
-
+        var.dlgsalir.btnAceptar.clicked.connect(events.Eventos.Salir)
+        var.dlgsalir.btnCancelar.clicked.connect((events.Eventos.closeSalir))
+        #var.dlgsalir.btnBoxSalir(var.dlgsalir.btnAceptar).clicked.connect(events.Eventos.Salir)
 
 class DialogCalendar(QtWidgets.QDialog):
     def __init__(self):
@@ -33,9 +32,10 @@ class DialogCalendar(QtWidgets.QDialog):
 class FileDialogAbrir(QtWidgets.QFileDialog):
     def __init__(self):
         super(FileDialogAbrir, self).__init__()
+        self.setWindowTitle('Abrir Archivo')
+        self.setModal(True)
 
-
-class PrintDialogAbrir(QPrintDialog):
+class PrintDialogAbrir(QtPrintSupport.QPrintDialog):
     def __init__(self):
         super(PrintDialogAbrir, self).__init__()
 
@@ -48,6 +48,7 @@ class Main(QtWidgets.QMainWindow):
         var.dlgcalendar = DialogCalendar()
         var.filedlgabrir = FileDialogAbrir()
         var.dlgImprimir = PrintDialogAbrir()
+#        var.dlgaviso = AvisoDialog()
 
         '''
         colección de datos
@@ -64,6 +65,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.toolbarSalir.triggered.connect(events.Eventos.Salir)
         var.ui.toolbarBackup.triggered.connect(events.Eventos.Backup)
         var.ui.toolbarAbrirDir.triggered.connect(events.Eventos.AbrirDir)
+        var.ui.toolbarPrinter.triggered.connect(events.Eventos.AbrirPrinter)
         var.ui.editDni.editingFinished.connect(clients.Clientes.validoDni)
         #var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni)
         var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)
