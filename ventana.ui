@@ -518,6 +518,9 @@ color: rgb(255, 255, 255);</string>
                <property name="text">
                 <string>Femenino</string>
                </property>
+               <attribute name="buttonGroup">
+                <string notr="true">grpbtnSex</string>
+               </attribute>
               </widget>
              </item>
              <item row="0" column="2">
@@ -525,6 +528,9 @@ color: rgb(255, 255, 255);</string>
                <property name="text">
                 <string>Masculino</string>
                </property>
+               <attribute name="buttonGroup">
+                <string notr="true">grpbtnSex</string>
+               </attribute>
               </widget>
              </item>
              <item row="0" column="3">
@@ -577,6 +583,9 @@ color: rgb(255, 255, 255);</string>
                <property name="text">
                 <string>Efectivo</string>
                </property>
+               <attribute name="buttonGroup">
+                <string notr="true">grpbtnPay</string>
+               </attribute>
               </widget>
              </item>
              <item row="0" column="8">
@@ -584,6 +593,9 @@ color: rgb(255, 255, 255);</string>
                <property name="text">
                 <string>Tarjeta</string>
                </property>
+               <attribute name="buttonGroup">
+                <string notr="true">grpbtnPay</string>
+               </attribute>
               </widget>
              </item>
              <item row="0" column="9">
@@ -591,6 +603,9 @@ color: rgb(255, 255, 255);</string>
                <property name="text">
                 <string>Transferencia</string>
                </property>
+               <attribute name="buttonGroup">
+                <string notr="true">grpbtnPay</string>
+               </attribute>
               </widget>
              </item>
             </layout>
@@ -1006,4 +1021,8 @@ color: rgb(255, 255, 255);</string>
   <include location="img/toolbarbackup.qrc"/>
  </resources>
  <connections/>
+ <buttongroups>
+  <buttongroup name="grpbtnPay"/>
+  <buttongroup name="grpbtnSex"/>
+ </buttongroups>
 </ui>
