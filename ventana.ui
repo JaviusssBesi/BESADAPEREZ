@@ -860,9 +860,27 @@ color: rgb(255, 255, 255);</string>
     <property name="title">
      <string>Archivo</string>
     </property>
+    <addaction name="actionAbrir"/>
+    <addaction name="actionImprimir"/>
+    <addaction name="separator"/>
     <addaction name="menubarSalir"/>
    </widget>
+   <widget class="QMenu" name="menuAcerca_de">
+    <property name="title">
+     <string>Acerca de</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuInformes">
+    <property name="title">
+     <string>Informes</string>
+    </property>
+    <addaction name="menubarReportCli"/>
+    <addaction name="actionImprimir_Factura"/>
+    <addaction name="actionListado_Productos"/>
+   </widget>
    <addaction name="menuArchivo"/>
+   <addaction name="menuInformes"/>
+   <addaction name="menuAcerca_de"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -933,11 +951,51 @@ color: rgb(255, 255, 255);</string>
    </property>
   </action>
   <action name="menubarSalir">
+   <property name="icon">
+    <iconset>
+     <activeon>:/salir/iconsalir.png</activeon>
+    </iconset>
+   </property>
    <property name="text">
-    <string>menubarSalir</string>
+    <string>Salir</string>
    </property>
    <property name="shortcut">
     <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="menubarReportCli">
+   <property name="text">
+    <string>Listado Clientes</string>
+   </property>
+  </action>
+  <action name="actionImprimir_Factura">
+   <property name="text">
+    <string>Imprimir Factura</string>
+   </property>
+  </action>
+  <action name="actionListado_Productos">
+   <property name="text">
+    <string>Listado Productos</string>
+   </property>
+  </action>
+  <action name="actionAbrir">
+   <property name="icon">
+    <iconset>
+     <activeon>:/carpeta/abrircarpeta.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+  </action>
+  <action name="actionImprimir">
+   <property name="icon">
+    <iconset>
+     <activeon>:/printer/printer.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Imprimir</string>
    </property>
   </action>
  </widget>

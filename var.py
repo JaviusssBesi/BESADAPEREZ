@@ -11,6 +11,7 @@ global lblMensalir
 global alta
 global baja
 global salir
+global lblMensalir
 
 '''
 variables de clientes

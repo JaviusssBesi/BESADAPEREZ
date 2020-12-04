@@ -3,7 +3,7 @@ from vensalir import *
 from PyQt5 import QtWidgets, QtGui, QtCore, QtPrintSupport
 from vencalendar import *
 from datetime import datetime, date
-import sys, var, events, clients, conexion
+import sys, var, events, clients, conexion, printer
 import locale
 # Idioma "es-ES" (código para el español de España)
 locale.setlocale(locale.LC_ALL, 'es-ES')
@@ -94,6 +94,10 @@ class Main(QtWidgets.QMainWindow):
         var.ui.lblstatusdate.setStyleSheet('QLabel {color: black; font: bold;}')
         var.ui.lblstatusdate.setText(fecha.strftime('%A %d de %B del %Y'))
 
+        '''
+        módulos de impresión
+        '''
+        var.ui.menubarReportCli.triggered.connect(printer.Printer.reportCli)
         '''
         módulos conexion base datos
         '''
