@@ -1,6 +1,5 @@
 import var, conexion, events, clients
-from ventana import *
-import vensalir
+from venavisos import *
 
 class Clientes():
     """
@@ -185,7 +184,7 @@ class Clientes():
         except Exception as error:
             print('Error cargar clientes: %s ' % str(error))
 
-    def bajaCliente(self):
+    def bajaCliente():
         """
         módulos para dar de baja un cliente
         :return:
@@ -193,10 +192,11 @@ class Clientes():
         try:
             dni = var.ui.editDni.text()
             conexion.Conexion.bajaCli(dni)
-            conexion.Conexion.mostrarClientes(self)
+            conexion.Conexion.mostrarClientes(None)
             Clientes.limpiarCli()
+            var.dlgaviso.hide()
         except Exception as error:
-            print('Error cargar clientes: %s ' % str(error))
+            print('Error ventana baja cliente: %s ' % str(error))
 
 
     def modifCliente(self):

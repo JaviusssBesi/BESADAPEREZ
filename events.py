@@ -1,6 +1,6 @@
-import sys, var
-from vensalir import *
+import sys, var, clients
 class Eventos():
+
 
     def Salir(event):
         '''
@@ -72,5 +72,21 @@ class Eventos():
         except Exception as error:
             print('Error abrir ventana aviso: %s ' % str(error))
 
-    # def aceptar():
-    #     print('aceptar')
+    def Confirmar():
+        try:
+            clients.Clientes.bajaCliente()
+            var.dlgaviso.hide()
+        except Exception as error:
+            print('Error botón confirma: %s ' % str(error))
+
+    def Anular():
+        try:
+            var.dlgaviso.hide()
+        except Exception as error:
+            print('Error botón anula: %s ' % str(error))
+
+    def mostrarAviso():
+        try:
+            var.dlgaviso.show()
+        except Exception as error:
+            print('Error mostrar aviso: %s ' % str(error))
