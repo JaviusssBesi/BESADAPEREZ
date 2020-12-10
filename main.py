@@ -57,6 +57,7 @@ class Main(QtWidgets.QMainWindow):
         var.filedlgabrir = FileDialogAbrir()
         var.dlgImprimir = PrintDialogAbrir()
         var.dlgaviso = DialogAvisos()
+        events.Eventos()
 
         '''
         colección de datos
@@ -79,7 +80,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)
         var.ui.btnAltaCli.clicked.connect(clients.Clientes.altaCliente)
         var.ui.btnLimpiarCli.clicked.connect(clients.Clientes.limpiarCli)
-        var.ui.btnBajaCli.clicked.connect(events.Eventos.mostrarAviso)
+        var.ui.btnBajaCli.clicked.connect(events.Eventos.mostrarAvisocli)
         var.ui.btnModifCli.clicked.connect(clients.Clientes.modifCliente)
         var.ui.btnReloadCli.clicked.connect(clients.Clientes.reloadCli)
         var.ui.btnBuscarCli.clicked.connect(clients.Clientes.buscarCli)

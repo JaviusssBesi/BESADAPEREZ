@@ -27,7 +27,7 @@ class Ui_dlgSalir(object):
         self.lblMensalir.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lblMensalir.setObjectName("lblMensalir")
         self.label = QtWidgets.QLabel(dlgSalir)
-        self.label.setGeometry(QtCore.QRect(50, 70, 51, 51))
+        self.label.setGeometry(QtCore.QRect(50, 50, 51, 51))
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap(":/newPrefix/iconoaviso.png"))
         self.label.setScaledContents(True)

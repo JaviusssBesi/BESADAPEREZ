@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>437</width>
-    <height>167</height>
+    <width>431</width>
+    <height>145</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="btnAceptaviso">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>100</y>
+     <x>170</x>
+     <y>80</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -32,8 +32,8 @@
   <widget class="QPushButton" name="btnCancelaviso">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>100</y>
+     <x>290</x>
+     <y>80</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -48,8 +48,8 @@
   <widget class="QLabel" name="lblAvisos">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>80</y>
+     <x>50</x>
+     <y>40</y>
      <width>51</width>
      <height>61</height>
     </rect>
@@ -64,7 +64,7 @@
   <widget class="QLabel" name="lblMensaviso">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>160</x>
      <y>40</y>
      <width>221</width>
      <height>20</height>

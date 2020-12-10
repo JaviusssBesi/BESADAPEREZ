@@ -43,7 +43,7 @@ class Clientes():
                 var.ui.lblValidar.setText('X')
                 var.ui.editDni.setText(dni.upper())
                 message = 'DNI INCORRECTO   '
-                events.Eventos.AbrirAviso(message)
+                #events.Eventos.AbrirAviso(message)
                 clients.Clientes.limpiarCli()
         except Exception as error:
             print('Error: %s' % str(error))
@@ -142,7 +142,8 @@ class Clientes():
                 conexion.Conexion.altaCli(newcli)
             else:
                 print('Faltan Datos')
-            #Clientes.limpiarCli()
+            conexion.Conexion.mostrarClientes(None)
+            Clientes.limpiarCli()
         except Exception as error:
             print('Error cargar fecha lo : %s ' % str(error))
 
@@ -192,12 +193,11 @@ class Clientes():
         try:
             dni = var.ui.editDni.text()
             conexion.Conexion.bajaCli(dni)
-            conexion.Conexion.mostrarClientes(None)
             Clientes.limpiarCli()
             var.dlgaviso.hide()
+            conexion.Conexion.mostrarClientes(None)
         except Exception as error:
             print('Error ventana baja cliente: %s ' % str(error))
-
 
     def modifCliente(self):
         """Módulos para modificar datos de un cliente con determinado código

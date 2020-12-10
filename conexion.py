@@ -31,7 +31,7 @@ class Conexion():
         if query.exec_():
             print("Inserción Correcta")
             var.ui.lblstatus.setText('Alta Cliente con dni ' + str(cliente[0]))
-            Conexion.mostrarClientes()
+            Conexion.mostrarClientes(None)
         else:
             print("Error: ", query.lastError().text())
 
