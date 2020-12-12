@@ -145,7 +145,7 @@ class Clientes():
             conexion.Conexion.mostrarClientes(None)
             Clientes.limpiarCli()
         except Exception as error:
-            print('Error cargar fecha lo : %s ' % str(error))
+            print('Error cargar cliente lo : %s ' % str(error))
 
     def limpiarCli():
         '''
@@ -153,9 +153,9 @@ class Clientes():
         :return: none
         '''
         try:
-            client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
-            for i in range(len(client)):
-                client[i].setText('')
+            var.cliente = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
+            for i in range(len(var.cliente)):
+                var.cliente[i].setText('')
             var.ui.grpbtnSex.setExclusive(False)  #necesario para los radiobutton
             for dato in var.rbtsex:
                 dato.setChecked(False)
