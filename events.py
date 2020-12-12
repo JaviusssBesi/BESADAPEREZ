@@ -43,7 +43,7 @@ class Eventos():
         except Exception as error:
             print('Error: %s' % str(error))
 
-    def Backup():
+    def Backup(self):
         try:
             fecha = datetime.now()
             fichzip = zipfile.ZipFile('_backup.zip','w')
@@ -67,12 +67,12 @@ class Eventos():
 
     def AbrirAviso(men):
         try:
-            var.lblMensalir.setText(men)
+            var.lblMensaviso.setText(men)
             var.dlgaviso.show()
         except Exception as error:
             print('Error abrir ventana aviso: %s ' % str(error))
 
-    def Confirmar():
+    def Confirmar(self):
         try:
             if var.cliente:
                 clients.Clientes.bajaCliente()
@@ -82,13 +82,13 @@ class Eventos():
         except Exception as error:
             print('Error botón confirma: %s ' % str(error))
 
-    def Anular():
+    def Anular(self):
         try:
             var.dlgaviso.hide()
         except Exception as error:
             print('Error botón anula: %s ' % str(error))
 
-    def mostrarAvisocli():
+    def mostrarAvisocli(self):
         try:
             var.cliente = True
             var.lblMensaviso.setText('¿Desea eliminar el cliente?')

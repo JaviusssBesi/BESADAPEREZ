@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import var
 
 
 class Ui_dlgAvisos(object):
@@ -30,15 +31,15 @@ class Ui_dlgAvisos(object):
         self.lblAvisos.setText("")
         self.lblAvisos.setPixmap(QtGui.QPixmap(":/avisos/aviso.png"))
         self.lblAvisos.setObjectName("lblAvisos")
-        self.lblMensaviso = QtWidgets.QLabel(dlgAvisos)
-        self.lblMensaviso.setGeometry(QtCore.QRect(160, 40, 221, 20))
+        var.lblMensaviso = QtWidgets.QLabel(dlgAvisos)
+        var.lblMensaviso.setGeometry(QtCore.QRect(160, 40, 221, 20))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.lblMensaviso.setFont(font)
-        self.lblMensaviso.setAlignment(QtCore.Qt.AlignCenter)
-        self.lblMensaviso.setObjectName("lblMensaviso")
+        var.lblMensaviso.setFont(font)
+        var.lblMensaviso.setAlignment(QtCore.Qt.AlignCenter)
+        var.lblMensaviso.setObjectName("lblMensaviso")
 
         self.retranslateUi(dlgAvisos)
         QtCore.QMetaObject.connectSlotsByName(dlgAvisos)
@@ -48,5 +49,5 @@ class Ui_dlgAvisos(object):
         dlgAvisos.setWindowTitle(_translate("dlgAvisos", "Dialog"))
         self.btnAceptaviso.setText(_translate("dlgAvisos", "Aceptar"))
         self.btnCancelaviso.setText(_translate("dlgAvisos", "Cancelar"))
-        self.lblMensaviso.setText(_translate("dlgAvisos", "¿Esta seguro que desea elimiinar?"))
+        var.lblMensaviso.setText(_translate("dlgAvisos", "¿Esta seguro que desea eliminar?"))
 import avisos_rc

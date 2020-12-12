@@ -42,8 +42,8 @@ class Clientes():
                 var.ui.lblValidar.setStyleSheet('QLabel {color: red;}')
                 var.ui.lblValidar.setText('X')
                 var.ui.editDni.setText(dni.upper())
-                message = 'DNI INCORRECTO   '
-                #events.Eventos.AbrirAviso(message)
+                men = 'DNI INCORRECTO   '
+                events.Eventos.AbrirAviso(men)
                 clients.Clientes.limpiarCli()
         except Exception as error:
             print('Error: %s' % str(error))
