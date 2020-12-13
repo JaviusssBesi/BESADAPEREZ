@@ -17,7 +17,7 @@ class Eventos():
                 sys.exit()
             else:
                 var.dlgsalir.hide()
-                event.ignore()
+                #event.ignore()
 
         except Exception as error:
             print('Error %s' % str(error))
