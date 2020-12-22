@@ -12,6 +12,9 @@ global salir
 global dlgaviso
 global lblMensaviso
 global cliente
+global backup
+global filedlgsave
+global copia
 
 '''
 variables de clientes

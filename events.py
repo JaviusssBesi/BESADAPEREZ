@@ -1,6 +1,13 @@
-import sys, var, clients
+import sys, var, clients, conexion, zipfile, os, shutil
 from datetime import datetime
-import zipfile, os
+from PyQt5 import QtWidgets
+
+class FileDialogGuardar(QtWidgets.QFileDialog):
+    def __init__(self):
+        super(FileDialogGuardar, self).__init__()
+        self.setWindowTitle('Guardar Archivo')
+        self.setModal(True)
+
 class Eventos():
 
 
@@ -10,10 +17,8 @@ class Eventos():
         :return:
         '''
         try:
-            #var.lblMensalir.setText('Desea Salir de Xestión')
             var.dlgsalir.show()
             if var.dlgsalir.exec_():
-                #print(event)
                 sys.exit()
             else:
                 var.dlgsalir.hide()
@@ -43,11 +48,19 @@ class Eventos():
         except Exception as error:
             print('Error: %s' % str(error))
 
-    def Backup(self):
+    def Backup():
         try:
-            fecha = datetime.now()
-            fichzip = zipfile.ZipFile('_backup.zip','w')
-            fichzip.write(var.filebd, os.path.basename(var.filebd), zipfile.ZIP_DEFLATED)
+            fecha = datetime.today()
+            fecha = fecha.strftime('%Y.%m.%d.%H.%M.%S')
+            var.copia = (str(fecha) + '_backup.zip')
+            option = QtWidgets.QFileDialog.Options()
+            directorio, filename = var.filedlgabrir.getSaveFileName(None,'Guardar Copia',var.copia,'.zip',options=option)
+            if var.filedlgabrir.Accepted and filename != '':
+                fichzip = zipfile.ZipFile(var.copia, 'w')
+                fichzip.write(var.filebd, os.path.basename(var.filebd), zipfile.ZIP_DEFLATED)
+                fichzip.close()
+                var.ui.lblstatus.setText('COPIA DE SEGURIDAD DE BASE DE DATOS CREADA')
+                shutil.move(str(var.copia), str(directorio))
         except Exception as error:
             print('Error: %s' % str(error))
 
@@ -72,13 +85,16 @@ class Eventos():
         except Exception as error:
             print('Error abrir ventana aviso: %s ' % str(error))
 
-    def Confirmar(self):
+    def Confirmar():
         try:
             if var.cliente:
                 clients.Clientes.bajaCliente()
                 var.dlgaviso.hide()
                 var.cliente = False
-                print(var.cliente)
+                conexion.Conexion.mostrarClientes(None)
+            if var.backup:
+                var.backup = False
+                var.dlgaviso.hide()
         except Exception as error:
             print('Error botón confirma: %s ' % str(error))
 
@@ -88,10 +104,20 @@ class Eventos():
         except Exception as error:
             print('Error botón anula: %s ' % str(error))
 
-    def mostrarAvisocli(self):
+    def mostrarAvisocli():
         try:
             var.cliente = True
+            var.backup = False
             var.lblMensaviso.setText('¿Desea eliminar el cliente?')
             var.dlgaviso.show()
         except Exception as error:
             print('Error mostrar aviso: %s ' % str(error))
+
+    # def mostrarAvisobackup():
+    #     try:
+    #         var.cliente = False
+    #         var.backup = True
+    #         var.lblMensaviso.setText('Copia de Seguridad Creada')
+    #         var.dlgaviso.show()
+    #     except Exception as error:
+    #         print('Error mostrar aviso: %s ' % str(error))

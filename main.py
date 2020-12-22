@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtGui, QtCore, QtPrintSupport
+from PyQt5 import QtPrintSupport
 from ventana import *
 from vensalir import *
 from venavisos import *
@@ -42,6 +42,14 @@ class FileDialogAbrir(QtWidgets.QFileDialog):
         super(FileDialogAbrir, self).__init__()
         self.setWindowTitle('Abrir Archivo')
         self.setModal(True)
+
+    class FileDialogGuardar(QtWidgets.QFileDialog):
+        def __init__(self):
+            super(FileDialogGuardar, self).__init__()
+            self.setWindowTitle('Guardar Archivo')
+            self.setModal(True)
+            option = QtWidgets.QFileDialog.Options()
+            file = QtWidgets.QFileDialog.getSaveFileName(self, 'Guardar Copia', var.copia, '.zip', options=option)
 
 class PrintDialogAbrir(QtPrintSupport.QPrintDialog):
     def __init__(self):
