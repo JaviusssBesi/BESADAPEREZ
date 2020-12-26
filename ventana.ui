@@ -868,7 +868,7 @@ color: rgb(255, 255, 255);</string>
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QPushButton" name="btnPro">
+            <widget class="QPushButton" name="btnBajaPro">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -1550,7 +1550,7 @@ color: rgb(255, 255, 255);</string>
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="grpbtnSex"/>
   <buttongroup name="grpbtnPay"/>
+  <buttongroup name="grpbtnSex"/>
  </buttongroups>
 </ui>

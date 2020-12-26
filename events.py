@@ -2,14 +2,7 @@ import sys, var, clients, conexion, zipfile, os, shutil
 from datetime import datetime
 from PyQt5 import QtWidgets
 
-class FileDialogGuardar(QtWidgets.QFileDialog):
-    def __init__(self):
-        super(FileDialogGuardar, self).__init__()
-        self.setWindowTitle('Guardar Archivo')
-        self.setModal(True)
-
 class Eventos():
-
 
     def Salir(event):
         '''
@@ -44,7 +37,6 @@ class Eventos():
             prov = ['','A Coruña', 'Lugo', 'Ourense', 'Pontevedra', 'Vigo']
             for i in prov:
                 var.ui.cmbProv.addItem(i)
-
         except Exception as error:
             print('Error: %s' % str(error))
 
@@ -80,7 +72,7 @@ class Eventos():
 
     def AbrirAviso(men):
         try:
-            var.lblMensaviso.setText(men)
+            var.lblMensalir.setText(men)
             var.dlgaviso.show()
         except Exception as error:
             print('Error abrir ventana aviso: %s ' % str(error))
@@ -98,7 +90,7 @@ class Eventos():
         except Exception as error:
             print('Error botón confirma: %s ' % str(error))
 
-    def Anular(self):
+    def Anular():
         try:
             var.dlgaviso.hide()
         except Exception as error:

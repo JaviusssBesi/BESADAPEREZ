@@ -4,7 +4,7 @@ from vensalir import *
 from venavisos import *
 from vencalendar import *
 from datetime import datetime, date
-import sys, var, events, clients, conexion, printer
+import sys, var, events, clients, conexion, printer, products
 import locale
 # Idioma "es-ES" (código para el español de España)
 locale.setlocale(locale.LC_ALL, 'es-ES')
@@ -40,16 +40,9 @@ class DialogCalendar(QtWidgets.QDialog):
 class FileDialogAbrir(QtWidgets.QFileDialog):
     def __init__(self):
         super(FileDialogAbrir, self).__init__()
-        self.setWindowTitle('Abrir Archivo')
+        self.setWindowTitle('Archivos')
         self.setModal(True)
 
-    class FileDialogGuardar(QtWidgets.QFileDialog):
-        def __init__(self):
-            super(FileDialogGuardar, self).__init__()
-            self.setWindowTitle('Guardar Archivo')
-            self.setModal(True)
-            option = QtWidgets.QFileDialog.Options()
-            file = QtWidgets.QFileDialog.getSaveFileName(self, 'Guardar Copia', var.copia, '.zip', options=option)
 
 class PrintDialogAbrir(QtPrintSupport.QPrintDialog):
     def __init__(self):
@@ -67,6 +60,7 @@ class Main(QtWidgets.QMainWindow):
         var.dlgaviso = DialogAvisos()
         events.Eventos()
 
+
         '''
         colección de datos
         '''
@@ -78,6 +72,7 @@ class Main(QtWidgets.QMainWindow):
         botones formulario cliente
         '''
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
+        var.ui.btnSalirpro.clicked.connect(events.Eventos.Salir)
         var.ui.menubarSalir.triggered.connect(events.Eventos.Salir)
         var.ui.toolbarSalir.triggered.connect(events.Eventos.Salir)
         var.ui.toolbarBackup.triggered.connect(events.Eventos.Backup)
@@ -87,9 +82,13 @@ class Main(QtWidgets.QMainWindow):
         #var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni)
         var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)
         var.ui.btnAltaCli.clicked.connect(clients.Clientes.altaCliente)
+        var.ui.btnAltaPro.clicked.connect(products.Products.altaProducto)
         var.ui.btnLimpiarCli.clicked.connect(clients.Clientes.limpiarCli)
+        var.ui.btnLimpiarPro.clicked.connect(products.Products.limpiarPro)
+        var.ui.btnModifPro.clicked.connect(products.Products.modifPro)
         var.ui.btnBajaCli.clicked.connect(events.Eventos.mostrarAvisocli)
         var.ui.btnModifCli.clicked.connect(clients.Clientes.modifCliente)
+        var.ui.btnBajaPro.clicked.connect(products.Products.bajaProd)
         var.ui.btnReloadCli.clicked.connect(clients.Clientes.reloadCli)
         var.ui.btnBuscarCli.clicked.connect(clients.Clientes.buscarCli)
         clients.Clientes.valoresSpin()
@@ -102,6 +101,8 @@ class Main(QtWidgets.QMainWindow):
         var.ui.cmbProv.activated[str].connect(clients.Clientes.selProv)
         var.ui.tableCli.clicked.connect(clients.Clientes.cargarCli)
         var.ui.tableCli.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows)
+        var.ui.tableProd.clicked.connect(products.Products.cargarProd)
+        var.ui.tableProd.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows)
         events.Eventos.cargarProv(self)
         var.ui.statusbar.addPermanentWidget(var.ui.lblstatus, 1)
         var.ui.statusbar.addPermanentWidget(var.ui.lblstatusdate, 2)
@@ -122,6 +123,7 @@ class Main(QtWidgets.QMainWindow):
         conexion.Conexion.db_connect(var.filebd)
         # conexion.Conexion()
         conexion.Conexion.mostrarClientes(self)
+        conexion.Conexion.mostrarProducts()
 
     def closeEvent(self, event):
         if event:
