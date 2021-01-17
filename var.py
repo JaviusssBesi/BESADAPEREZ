@@ -1,3 +1,4 @@
+from PyQt5 import QtWidgets
 '''
 Variable ventana y ventanas auxiliares
 '''
@@ -15,6 +16,12 @@ global cliente
 global backup
 global filedlgsave
 global copia
+global rep
+global cmbventa
+global subfac
+global iva
+global fac
+global articulo
 
 '''
 variables de clientes
@@ -24,6 +31,7 @@ global chkpago
 global sex
 pay = []
 pay2 = []
+venta = []
 
 '''
 variables base de datos

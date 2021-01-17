@@ -28,6 +28,19 @@ class Eventos():
         except Exception as error:
             print('Error %s' % str(error))
 
+    def CerrarAbout(event):
+        try:
+            if var.dlgabout.exec_():
+                var.dlgabout.hide()
+        except Exception as error:
+            print('Error %s' % str(error))
+
+    def abrirAbout(self):
+        try:
+            var.dlgabout.show()
+        except Exception as error:
+            print('Error abrir About: %s ' % str(error))
+
     def cargarProv(self):
         """
         carga las provincias al iniciar el programa
