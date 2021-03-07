@@ -173,7 +173,7 @@ class Ventas:
                 fila = [dato.text() for dato in fila]
             codventa = int(fila[0])
             conexion.Conexion.anulaVenta(codventa)
-            Ventas.mostrarVentasfac()
+            Ventas.mostrarVentasfac(self)
 
         except Exception as error:
             print('Error proceso anular venta de una factura: %s' % str(error))

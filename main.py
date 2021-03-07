@@ -156,6 +156,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.toolbarAbrirDir.triggered.connect(events.Eventos.AbrirDir)
         var.ui.toolbarPrinter.triggered.connect(events.Eventos.AbrirPrinter)
         var.ui.toolbarRestaurarBBDD.triggered.connect(events.Eventos.restaurarBD)
+        var.ui.actionImportar_datos.triggered.connect(events.Eventos.importar_excel)
         var.ui.editDni.editingFinished.connect(clients.Clientes.validoDni)
         # var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni)
         var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)
