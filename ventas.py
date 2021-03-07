@@ -1,11 +1,22 @@
 import var
 import conexion
-from PyQt5 import QtWidgets, QtCore
-from time import sleep
+from PyQt5 import QtWidgets
+
 
 class Ventas:
 
     def altaFactura(self):
+        '''
+
+        Módulo que graba una factura previa al proceso de ventas.
+
+        :return: None
+        :rtype: None
+
+        Una vez grabada recarga la tabla Factura
+        Y prepara la tabla de Ventas.
+
+        '''
         try:
             dni = var.ui.editDniclifac.text()
             fecha = var.ui.editDatafac.text()
@@ -22,7 +33,12 @@ class Ventas:
 
     def abrirCalendar(self):
         '''
-        Abrir la ventana calendario
+
+        Módulo que abre la ventana calendario para cargar la fecha facura
+
+        :return: None
+        :rtype: None
+
         '''
         try:
             var.dlgcalendar.show()
@@ -31,7 +47,16 @@ class Ventas:
 
     def cargarFechafac(qDate):
         ''''
-        Este módulo se ejecuta cuando clickeamos en un día del calendar, es decir, clicked de calendar
+
+        Módulo se ejecuta cuando clickeamos en un día del calendar, es decir, clicked de calendar
+
+        :param qDate para formatear la fecha
+        :type: None
+        :return: None
+        :rtype: None
+
+        Cuando clickeamos en el calendario carga la fecha en editFecha
+
         '''
         try:
             if var.ui.tabWidget.currentIndex() == 1:
@@ -43,8 +68,12 @@ class Ventas:
 
     def cargarFact(self):
         '''
-        Módulo que carga los datos de la factura y cliente
-        :return:
+
+        Módulo que carga los datos de la factura y cliente al clickear en la tabla Factura
+
+        :return:None
+        :type: None
+
         '''
         try:
             var.subfac = 0.00
@@ -53,18 +82,24 @@ class Ventas:
             fila = var.ui.tabFac.selectedItems()
             if fila:
                 fila = [dato.text() for dato in fila]
-            codf = fila[0]
-            var.ui.lblNumFac.setText(str(codf))
+            var.ui.lblNumFac.setText(str(fila[0]))
             var.ui.editDatafac.setText(str(fila[1]))
-            conexion.Conexion.cargarFac(str(codf))
+            conexion.Conexion.cargarFac(str(fila[0]))
         except Exception as error:
             print('Error cargar Factura: %s ' % str(error))
 
     def prepararTablaventas(index):
         '''
-        Modulo que prepara tabla Ventas, carga un combo en la tabla
-        y carga dicho combo con los datos del producto
-        :return:
+
+        Modulo que prepara tabla Ventas
+
+        :param: index fila de la tabla
+        :type: int
+        :return: None
+        :type: None
+
+        Carga un combo en la tabla Ventas con los datos del producto e inserta nueva fila en la tabal
+
         '''
         try:
             var.cmbventa = QtWidgets.QComboBox()
@@ -101,14 +136,14 @@ class Ventas:
             cantidad = cantidad.replace(',', '.')
             var.venta.append(int(cantidad))
             precio = dato[1].replace(',', '.')
-            var.venta.append(round(float(precio),2))
+            var.venta.append(round(float(precio), 2))
             subtotal = round(float(cantidad)*float(dato[1]), 2)
             var.venta.append(subtotal)
             var.venta.append(row)
             #sleep(1)
             if codfac != '' and articulo != '' and cantidad != '':
                 conexion.Conexion.altaVenta()
-                var.subfac = round(float(subtotal) + float(var.subfac),2)
+                var.subfac = round(float(subtotal) + float(var.subfac), 2)
                 var.ui.lblSubtotal.setText(str(var.subfac))
                 var.iva = round(float(var.subfac) * 0.21, 2)
                 var.ui.lblIva.setText(str(var.iva))
@@ -121,12 +156,13 @@ class Ventas:
         except Exception as error:
             print('Error proceso venta: %s ' % str(error))
 
-    def mostrarVentasfac():
+    def mostrarVentasfac(self):
         try:
             var.cmbventa = QtWidgets.QComboBox()
-            codfac = var.ui.lblNumFac.text()
-            conexion.Conexion.listadoVentasfac(codfac)
             conexion.Conexion.cargarCmbventa(var.cmbventa)
+            codfac = var.ui.lblNumFac.text()
+            conexion.Conexion.listadoVentasfac(self, codfac)
+
         except Exception as error:
             print('Error proceso mostrar ventas por factura: %s' %str(error))
 

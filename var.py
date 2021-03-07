@@ -7,11 +7,11 @@ global dlgsalir
 global dlgcalendar
 global filedlgabrir
 global dlgImprimir
+global dlgabout
 global alta
 global baja
 global salir
 global dlgaviso
-global lblMensaviso
 global cliente
 global backup
 global filedlgsave
@@ -22,6 +22,8 @@ global subfac
 global iva
 global fac
 global articulo
+
+
 
 '''
 variables de clientes

@@ -31,7 +31,7 @@ class Ui_dlgAbout(object):
         self.lblVersion.setFont(font)
         self.lblVersion.setObjectName("lblVersion")
         self.lblNombre = QtWidgets.QLabel(dlgAbout)
-        self.lblNombre.setGeometry(QtCore.QRect(120, 140, 151, 16))
+        self.lblNombre.setGeometry(QtCore.QRect(100, 140, 181, 16))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)

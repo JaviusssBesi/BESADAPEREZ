@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="icorestaurabd">
+    <file>restaurarbd.png</file>
+  </qresource>
+</RCC>
