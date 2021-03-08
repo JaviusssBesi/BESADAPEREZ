@@ -242,18 +242,17 @@ class Conexion():
     '''
 
     def altaProducto(producto):
-        '''
+        """
 
-        Da de alta un producto cuyos datos se pasan por una lista.
-        Muestra mensaje de resultado en el barra de estado.
-        Recarga la tabla actualizada de productos
+        Da de alta a un producto cuyos datos se pasan por una lista. Muestra mensaje de resultado en la barra de estado
+        Recarga la tabla de productos actualizada
 
-        :param: producto
+        :param : producto a cargar
         :type: lista
-        :return: None
-        :rtype: None
+        :return: none
+        :rtype: none
 
-        '''
+        """
         query = QtSql.QSqlQuery()
         query.prepare(
             'insert into productos (producto, precio, stock)'
@@ -267,48 +266,47 @@ class Conexion():
         Conexion.mostrarProducts()
 
     def mostrarProducts(self):
-        '''
+        """
 
-        Módulo que carga los datos del producto por orden alfabético en la tabla Productos
+        Modulo que carga los datos del producto por orden alfabetico en
+        la tabla productos
 
-        :return: None
-        :rtype: None
+        :type: lista
+        :return: none
+        :rtype: none
 
-        '''
+        """
         index = 0
         query = QtSql.QSqlQuery()
         query.prepare('select codigo, producto, precio from productos order by producto')
         if query.exec_():
             while query.next():
-                # cojo los valores
                 codigo = query.value(0)
                 producto = query.value(1)
                 precio = query.value(2)
-                # crea la fila
                 var.ui.tableProd.setRowCount(index + 1)
-                # voy metiendo los datos en cada celda de la fila
                 var.ui.tableProd.setItem(index, 0, QtWidgets.QTableWidgetItem(str(codigo)))
                 var.ui.tableProd.setItem(index, 1, QtWidgets.QTableWidgetItem(producto))
-                var.ui.tableProd.setItem(index, 2, QtWidgets.QTableWidgetItem("{0:.2f}".format(float(precio))+ ' €'))
+                var.ui.tableProd.setItem(index, 2, QtWidgets.QTableWidgetItem(str(precio)))
                 var.ui.tableProd.item(index, 0).setTextAlignment(QtCore.Qt.AlignCenter)
-                var.ui.tableProd.item(index, 2).setTextAlignment(QtCore.Qt.AlignRight)
+                var.ui.tableProd.item(index, 1).setTextAlignment(QtCore.Qt.AlignCenter)
+                var.ui.tableProd.item(index, 2).setTextAlignment(QtCore.Qt.AlignCenter)
                 index += 1
         else:
-            var.ui.lblstatus.setText('Error carga producto.')
-            print("Error mostrar productos: ", query.lastError().text())
+            print("Error mostrar clientes: ", query.lastError().text())
 
     def cargarProd(cod):
-        '''
+        """
 
-        Muestra los datos por pantalla de un producto cuando se clickea sobre el mismo en la tabla.
+        Carga los datos de un producto cuando se cliquea sobre el en la
+        tabla
 
-        :param cod: código del producto
+        :param cod: codigo del producto
         :type cod: entero
-        :return: None
-        :rtype: None
+        :return: none
+        :rtype: none
 
-        '''
-
+        """
         query = QtSql.QSqlQuery()
         query.prepare('select producto, precio, stock from productos where codigo = :cod')
         query.bindValue(':cod', cod)
@@ -320,48 +318,44 @@ class Conexion():
                 var.ui.editStock.setText(str(query.value(2)))
 
     def bajaPro(cod):
-        ''''
+        """
 
-        Módulo para eliminar producto del inventario.
+        Modulo para eliminar productos del inventario
 
-        :param cod
-        :type: int
-        :return None
-        :rtype None
+        :param cod: codigo del producto
+        :type cod: int
+        :return: none
+        :rtype: none
 
-        Se pasa como argumento el código del producto a eliminar.
-        A continuación recarga la tablaProd actualizada
-        Muestra mensaje resultado en la barra de estado
+        Se pasa como argumento el codigo del producto a eliminar, recarga la
+        tabla productos actualizada, muestra el mensaje de resultado en la barra de estado
 
-        '''
+        """
         query = QtSql.QSqlQuery()
         query.prepare('delete from productos where codigo = :cod')
         query.bindValue(':cod', cod)
         if query.exec_():
             var.ui.lblstatus.setText('Producto de còdigo ' + cod + ' dado de baja')
         else:
-            var.ui.lblstatus.setText('Error baja pProducto de código ' + cod + '.')
             print("Error baja producto: ", query.lastError().text())
         Conexion.mostrarProducts()
 
     def modificarPro(cod, newdata):
-        '''
+        """
 
-        Módulo que actualiza datos del producto
+        Modulo que actualiza los datos del producto
 
-        :param cod: código producto
+        :param cod: codigo del producto
         :type cod: int
         :param newdata: datos producto
         :type newdata: lista
-        :return: None
-        :rtype: None
+        :return: none
+        :rtype: none
 
-        Recibe como parámetros el código del producto a modificar así como los datos que deseemos modificar.
-        En realidad toma todos los datos que hay en los widgets de la pantalla productos.
-        El precio se formatea con dos decimales y punto.
-        Muestra resultado en la barra de estado
+        Recibe el codigo del producto a modificar y sus datos.
+        Tambien coge los datos de los widgets de la pantalla productos
 
-        '''
+        """
         cod = int(cod)
         query = QtSql.QSqlQuery()
         query.prepare('update productos set producto=:producto, precio=:precio, stock=:stock where codigo=:cod')
@@ -374,7 +368,6 @@ class Conexion():
         if query.exec_():
             var.ui.lblstatus.setText('Producto con código ' + str(cod) + ' modificado')
         else:
-            var.ui.lblstatus.setText('Error modificación producto con código ' + str(cod) + '.')
             print("Error modificar producto: ", query.lastError().text())
 
     '''

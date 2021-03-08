@@ -2,13 +2,14 @@ import var, conexion
 
 class Products():
     def limpiarPro(self):
-        '''
+        """
 
-        Módulo que limpia los datos del formulario producto
+        Modulo que limpia el formulario producto
 
-        :return: None
-        :rtype: None
-        '''
+        :return: none
+        :rtype: none
+
+        """
         try:
             product = [var.ui.editArtic, var.ui.editPrec, var.ui.editStock]
             for i in range(len(product)):
@@ -18,47 +19,39 @@ class Products():
             print('Error limpiar widgets: %s ' % str(error))
 
     def altaProducto(self):
-        '''
+        """
 
-        Módulo que insertar los proudctos en la tabla y en la base de datos
-        en las búsquedas mostrará los datos del producto
-        :return: None
-        :rtype: None
-        '''
+        Modulo que isertara los datos del producto en la tabla y BBDD
 
-        #preparamos el registro
+        :return: none
+        :rtype: none
+
+        """
         try:
             newpro = []
-            #protab = []  #será lo que carguemos en la tablas
-            producto = [var.ui.editArtic, var.ui.editPrec, var.ui.editStock]
+            producto = [var.ui.editArtic, var.ui.editPrec, var.ui.editStock ]
             k = 0
             for i in producto:
-                newpro.append(i.text())  #cargamos los valores que hay en los editline
-                # if k < 3:
-                #     protab.append(i.text())
-                #     k += 1
+                newpro.append(i.text())
             if producto:
-            #comprobarmos que no esté vacío lo principal
-            #aquí empieza como trabajar con la TableWidget
                 conexion.Conexion.altaProducto(newpro)
             else:
                 print('Faltan Datos')
-            #conexion.Conexion.mostrarClientes(None)
             Products.limpiarPro(producto)
             conexion.Conexion.cargarCmbventa(var.cmbventa)
         except Exception as error:
-            print('Error cargar producto en alta : %s ' % str(error))
+            print('Error cargar producto : %s ' % str(error))
 
 
     def modifPro(self):
         """
 
-        Módulo para modificar datos de un producto con determinado código
+        Modulo para modificar los datos de un producto con un determinado codigo
 
-        :return: None
-        :rtype: None
+        :return: none
+        :rtype: none
 
-        Además recarga la tabla de productos con los valores actualizados
+        Tambien recarga la tabla productos con los nuevo valores
 
         """
         try:
@@ -68,24 +61,25 @@ class Products():
                 newdata.append(i.text())
             cod = var.ui.lblCodPro.text()
             conexion.Conexion.modificarPro(cod, newdata)
-            conexion.Conexion.mostrarProducts(self)
+            conexion.Conexion.mostrarProducts()
             conexion.Conexion.cargarCmbventa()
 
         except Exception as error:
             print('Error modificar producto: %s ' % str(error))
 
     def cargarProd():
-        '''
+        """
 
-        Módulo que carga en widgets formulario productos la fila que se clickea en la tablaPro
+        Modulo que carga los datos de los productos de la fila clicada
+        en sus widgets
 
-        :return: None
-        :type: None
+        :return: none
+        :rtype: none
 
-        '''
+        """
         try:
             fila = var.ui.tableProd.selectedItems()
-            prod = [var.ui.editArtic, var.ui.editPrec, var.ui.editStock]
+            prod = [ var.ui.editArtic, var.ui.editPrec, var.ui.editStock ]
             if fila:
                 fila = [dato.text() for dato in fila]
             i = 1
@@ -99,10 +93,11 @@ class Products():
     def bajaProd(self):
         """
 
-        Módulo para dar de baja un producto y recarga la tabla productos y limpia el formulario productos
+        Modul que da de baja un producto y recarga la tabla productos
+        y limpia el formulario
 
-        :return: None
-        :type: None
+        :return: none
+        :rtype: none
 
         """
         try:
@@ -110,7 +105,7 @@ class Products():
             conexion.Conexion.bajaPro(cod)
             Products.limpiarPro(self)
             var.dlgaviso.hide()
-            conexion.Conexion.mostrarProducts(self)
+            conexion.Conexion.mostrarProducts()
             conexion.Conexion.cargarCmbventa()
         except Exception as error:
             print('Error ventana baja producto: %s ' % str(error))

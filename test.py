@@ -4,43 +4,15 @@ from PyQt5 import QtSql
 
 class MyTestCase(unittest.TestCase):
 
-    def test_conexion(self):
-        value = conexion.Conexion.db_connect(var.filebd)
-        msg = 'Conexión no válida'
-        self.assertTrue(value, msg)
+    def test_codigo(self):
+        codigo = 2
+        val = False
+        msg = 'Código incorrecto'
 
-    def test_dni(self):
-        dni = '00000000T'
-        value = clients.Clientes.validarDni(str(dni))
-        msg = 'Proba DNI Errónea'
-        self.assertTrue(value, msg)
+        if codigo > 0:
+            val = True
 
-    def test_fact(self):
-        valor = 40.03
-        codfac = 91
-        try:
-            msg = 'Cálculos incorrectos'
-            var.subfac = 0.00
-            query = QtSql.QSqlQuery()
-            query1 = QtSql.QSqlQuery()
-            query.prepare('select codventa, codarticventa, cantidad from ventas where codfacventa = :codfac')
-            query.bindValue(':codfac', int(codfac))
-            if query.exec_():
-                while query.next():
-                    codarticventa = query.value(1)
-                    cantidad = query.value(2)
-                    query1.prepare('select producto, precio from productos where codigo = :codarticventa')
-                    query1.bindValue(':codarticventa', int(codarticventa))
-                    if query1.exec_():
-                        while query1.next():
-                            precio = query1.value(1)
-                            subtotal = round(float(cantidad) * float(precio), 2)
-                    var.subfac = round(float(subtotal) + float(var.subfac), 2)
-            var.iva = round(float(var.subfac) * 0.21, 2)
-            var.fac = round(float(var.iva) + float(var.subfac), 2)
-        except Exception as error:
-            print('Error Listado de la tabla de ventas: %s ' % str(error))
-        self.assertEqual(round(float(valor),2), round(float(var.fac),2), msg)
+        self.assertTrue(val, msg)
 
 if __name__ == '__main__':
     unittest.main()
